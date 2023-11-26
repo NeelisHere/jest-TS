@@ -1,7 +1,7 @@
 
 function Greet(props: GreetProps) {
 	return (
-		<div>Hello { props.name || null }</div>
+		<div>Hello {props.name || null}</div>
 	)
 }
 
