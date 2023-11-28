@@ -5,8 +5,17 @@ describe('Form-1', () => {
     test('Initial Render', () => {
         render(<FormOne />)
 
-        const nameTextInputElement = screen.getByRole('textbox')
+        const pageHeading = screen.getByRole('heading', { level: 1 })
+        expect(pageHeading).toBeInTheDocument()
+
+        const sectionHeading = screen.getByRole('heading', { level: 2 })
+        expect(sectionHeading).toBeInTheDocument()
+
+        const nameTextInputElement = screen.getByRole('textbox', { name: 'Name' })
         expect(nameTextInputElement).toBeInTheDocument()
+
+        const bioTextareaElement = screen.getByRole('textbox', { name: 'Bio' })
+        expect(bioTextareaElement).toBeInTheDocument()
 
         const jobLocationDropdownElement = screen.getByRole('combobox')
         expect(jobLocationDropdownElement).toBeInTheDocument()
