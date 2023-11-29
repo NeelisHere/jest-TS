@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { SkillType, SkillsPropsType } from './Skills.types'
+import { Button } from '@chakra-ui/react'
 
 
 const Skills = (props: SkillsPropsType) => {
@@ -9,7 +10,7 @@ const Skills = (props: SkillsPropsType) => {
     useEffect(() => {
         setTimeout(() => {
             setSkills(props.skills)
-        }, 9000)
+        }, 500)
     }, [])
 
     return (
@@ -17,13 +18,13 @@ const Skills = (props: SkillsPropsType) => {
             <h1>My Skills</h1>
             {
                 !userLoggedIn? 
-                <button onClick={() => setUserLoggedIn((prev) => !prev)}>
+                <Button onClick={() => setUserLoggedIn((prev) => !prev)}>
                     login
-                </button> 
+                </Button> 
                 : 
-                <button onClick={() => setUserLoggedIn((prev) => !prev)}>
+                <Button onClick={() => setUserLoggedIn((prev) => !prev)}>
                     logout
-                </button>
+                </Button>
             }
             <div data-testid='all-skills'>
                 {

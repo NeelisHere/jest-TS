@@ -1,5 +1,5 @@
 import { SkillType } from "./Skills.types";
-import { render, screen, waitFor } from "@testing-library/react"
+import { logRoles, render, screen, waitFor } from "@testing-library/react"
 import Skills from "./Skills"
 
 const skills: SkillType[] = [
@@ -9,7 +9,7 @@ const skills: SkillType[] = [
     { id: '4', skill: 'React', rating: 2 },
 ]
 
-const TEST_TIMEOUT = 10*1000
+const TEST_TIMEOUT = 2*1000
 
 jest.setTimeout(TEST_TIMEOUT)
 
@@ -21,10 +21,12 @@ describe('Skills', () => {
     })
 
     test('skill-card Render', async () => {
-        render(<Skills skills={skills} />)
-    
+        const view = render(<Skills skills={skills} />)
+        logRoles(view.container)
+        // screen.debug()
         const skillCardElement = await waitFor(() => screen.findAllByTestId('skill-card'), { timeout: TEST_TIMEOUT })
         expect(skillCardElement).toHaveLength(skills.length)
+        // screen.debug()
     })
 
     test('login button render', () => {

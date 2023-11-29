@@ -1,3 +1,4 @@
+
 import Skills from "./components/skills/Skills";
 import { SkillType } from "./components/skills/Skills.types";
 
@@ -8,11 +9,12 @@ const skills: SkillType[] = [
     { id: '4', skill: 'React', rating: 2 },
 ]
 
+
 const App = () => {
 	return (
-		<div>
+		<>
 			<Skills skills={skills}/>
-		</div>
+		</>
 	);
 }
 
